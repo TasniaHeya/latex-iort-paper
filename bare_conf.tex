@@ -54,11 +54,12 @@
 
 
 \pagestyle{fancy}
-\chead{2018 Joint 7th International Conference on Informatics, Electronics \& Vision (ICIEV) and 2018 2nd
+
+\chead{\bf2018 Joint 7th International Conference on Informatics, Electronics \& Vision (ICIEV) and 2018 2nd
 International Conference on Imaging, Vision \& Pattern Recognition (icIVPR)
 }
 \renewcommand{\headrulewidth}{0pt}
-\cfoot{978-1-5386-5163-6/18/\$31.00 \textcopyright 2018 IEEE}
+\cfoot{\bf978-1-5386-5163-6/18/\$31.00 \textcopyright 2018 IEEE}
 
 
 
@@ -174,7 +175,7 @@ According to \cite{ten}, the main difference between IoT and IoRT is that, the r
 % =============================================
 % # III. Modeling and consistency validations #
 % =============================================
-
+\thispagestyle{empty}
 \subsection{Cloud Robotics}
 Cloud robotics is the concept of network-connected robots which use the benefits of parallel computation and data sharing by connecting with the Internet using the indefinite resources of big data and performing collaboration as well as rapid collective learning \cite{eleven}. Cloud computing provides solution to overcome the limitations and extend the capacities of networked robotics. Cloud robotics is the amalgamation of two complementary clouds which are, ad-hoc cloud where participating robots perform machine-to-machine (M2M) communications and an infrastructure cloud which follows the machine-to-cloud (M2C) communications \cite{two}.
 Ad-hoc Cloud. There are three benefits of ad-hoc cloud. At first, a virtual ad-hoc infrastructure can be formed by pooling the capacity of computation of individual robot together. Next, collaborative decisions can be chosen by exchanging knowledge among the unit of collaborative computation, in different applications of robotics. Finally, it helps the robots which are out of range, to send request to the storage system to establish communication \cite{two}.
@@ -211,7 +212,7 @@ The system consists of 5 layers following the model of IoRT architecture. The la
 The robotic arm will have a unique identifier in the form of a combined pair of values consisting its universally unique MAC address and a securely generated SSH Public Key. The robotic arm will interface with the IOT Network by first registering itself on the Network and during this registration process, the robotic device will be provided an "Access Token" as well as a "Receive Token" by the network. In the IOT network, there will be a "Social Group" of other Robotic components with multiple sub-social groups. When the robotic device will be initially registering with the network, it will be visible to all the available members (other devices) of the social group. During the registration handshake, the robotic arm being tested can specify which sub-social Group it wants to integrate into. Using the Data property, the robotic arm can specify its hardware, component type, and other details as well as to specify its exact model during the registration process with the IOT Network. Once registered, the robotic arm can remember 'tracks' which are specific short movements from point A to point B in one plane of the hand specified as Key value pairs. Multiple tracks of such small movements in one plane, become an action acting on that plane. Multiple actions on multiple planes turn the robotic arm's action into a human-arm-like complex action. These Key Values track data that can be shared to other Robotic Arms in the IOT Network, which can perform the same action after that. All the models that were created are explained below.
 
 
-
+\thispagestyle{empty}
 \begin{itemize}
   \item 
  \textbf{"Thing":}
@@ -265,7 +266,7 @@ We used MG995 servo motors for the movements of the joints, which has metal gear
 
 \subsubsection{Main body construction}
 Two servos were used in the shoulder movements in order to provide more torque. The length of the wrist, arm and shoulder were 4.5 cm, 10cm and 6.5 cm consequently. The material used to make the main body was 3mm plastic wood and we used screws and hot glue to attach the servo motors with the main structure.
-
+\thispagestyle{empty}
 \subsubsection{End Effector}
 The end effector is the part of a robotic arm that interacts with the environment physically. The most suitable end effector for our purpose will be a general-purpose grabber. This is a MKII robotic claw developed by DAGU which has 2 inches of open-close range of the fingers \cite{eighteen}. For the end effector operation and the wrist horizontal rotation we used two different types of servos. These are metal gear (micro size) servos with an operating voltage of 6 volts and delivered 44.4 oz-in. the highest torque at 0.18 sec/60. The weight is 20g and has a rotation of 180 degrees.
 \begin{figure}[ht!] %!t
@@ -314,7 +315,7 @@ Mongo db is used as the database. The root node is divided into two sub nodes, o
 \subsubsection{CDN}
 CDN (Content Delivery Network) is used to have instances of the App service and Mongo DB to every regional node so that both the user and robotic arm can have faster access.
 
-
+\thispagestyle{empty}
  
 \subsection{Application Layer}
 The application layer consists of three sections. Firstly, the Ardunio part, which receives the angles to be set from the infrastructure layer and after the operation, it sends an acknowledgement to the infrastructure layer. Secondly, the App services of the Infrastructure layer plays the most vital part. Using the Azure sdks with php, the infrastructure layer App services app was developed, that receives and sends command and notification via service bus. Another part of this application was to recognize patterns of commonly used command sequences and store them in the "Learning" node of Mongo db. Furthermore, every time a sequence of commands are received in the service bus, the application searches for the received pattern in the "Learning" node to reuse and prompt to the user. If user accepts it, then the pattern will be reused. We implemented quick learning of IoRT following this process. Thirdly, a user end console-based software was developed using C\# and .NET that communicated with the Infrastructure layer.
@@ -351,7 +352,7 @@ In case of surveillance activities this smart robotic arms can be very useful an
 \subsection{Sorting Colorful Objects}
 Smart robotic arms can be used for sorting objects by color as they are capable of decision taking by collective learning. They can arrange things according to color preference in needed tasks such as in clothing or pencil factories, this can be a very useful activity while packaging.
 
-
+\thispagestyle{empty}
 \section{Conclusion}
 
 Though there are several useful applications of robotic arms but there exists some limitations as well. For instance, lacking opportunities of remotely accessibility in hazardous areas where human cannot operate them directly because of, lack of communicating skills of the arms on those places, lacking of quick learning skills from both human and other intelligent robots to become prepared for any critical situation. These limitations can be solved by using the IoRT services which can be very beneficial for increasing scopes of robotic arms and their rapid learning skills.
