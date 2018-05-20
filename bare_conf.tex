@@ -1,0 +1,409 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{url}
+\usepackage{cite}
+
+\ifCLASSINFOpdf
+ \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+ \graphicspath{{images/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/tex-archive/info/epslatex/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+% Do not put math or special symbols in the title.
+\title{\LARGE Real-life Implementation of Internet of Robotic Things Using 5 DoF Heterogeneous Robotic Arm}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Sayed Erfan Arefin\IEEEauthorrefmark{1},
+Tasnia Ashrafi Heya\IEEEauthorrefmark{1} and Dr Jia Uddin\IEEEauthorrefmark{1}}
+\IEEEauthorblockA{Computer Science and Engineering Depertment,
+BRAC University\\
+66, Mohakhali, Dhaka\\
+Email: \IEEEauthorrefmark{1}erfanjordison@gmail.com,
+\IEEEauthorrefmark{1}tasnia.heya@gmail.com,
+\IEEEauthorrefmark{1}jia.uddin@bracu.ac.bd}}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+% 
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3}, 
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+Establishing a communication bridge by transferring data driven from different embedded sensors via internet or reconcilable network protocols between enormous number of distinctively addressable objects or "things", is known as the Internet of Things (IoT). IoT can be amalgamated with multitudinous objects such as thermostats, cars, lights, refrigerators, and many more appliances which will be able to build a connection via internet. Where objects of our diurnal life can establish a network connection and get smarter with IoT, robotics can be another aspect which will get beneficial to be brought under the concept of IoT and is able to add a new perception in robotics having "Mechanical Smart Intelligence" which is generally called "Internet of Robotic Things" (IoRT). A robotic arm is a part of robotics where it is usually a programmable mechanical arm which has human arm like functionalities. In this paper, IoRT will be represented by a 5 DoF (degree of freedoms) Robotic Arm which will be able to communicate as an IoRT device, controlled with heterogeneous devices using Social IoT and "Cloud Robotics".
+\end{abstract}
+
+% no keywords
+
+\begin{keywords}
+Robotic Arm, Heterogeneous, Cloud Robotic, Internet of Robotic Things, IoT
+\end{keywords}
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+Robotics is a field of study in which reprogrammable, multifunctional controller intended to move material, parts, instruments, or concentrated gadgets through different customized and programmed movements or motions to execute divergent tasks. It includes the concept of robotic arms and the activities of this is very analogous to the activities of human arms. Automated arms are the crucial piece of the considerable number of ventures where they perform different diverse duties, for example, welding, trimming, picking and putting and so forth, in addition to that, the greatest favorable position of these arms is that, it can work in high-risk regions and furthermore in the regions which cannot be gotten to by human \cite{one}. Networked or pre-programmed robotic arms have been exceptionally fruitful for industries because of having high endurance, speed, and accuracy in structured factory environments. Though it has made incredible progress in modern factorial applications, transportation frameworks, and security applications, but the development of networked robotics has severe limitations in case of resource, information, and communication inalienable in the current infrastructure as, all calculations are done on the locally available robots, which have constrained computing abilities and accessing information is likewise confined to the aggregate storage of the system. Cloud Robotics is a concept to get rid of these constraints which results in more efficient, intelligent but cheap robotic solutions. \cite{two}
+Cloud robotics concept is a compound result of cloud technologies and robotics where the lacking of robotic arms such as computational capacity, memory and storage can be demolished by the empowerment of offload computation-intensive and storage-intensive jobs into the cloud \cite{four}. If robotic arms follows this concept, there can be four possible advantages which are, a) remote libraries of images, maps, trajectories, and object data can be easily accessible, b) accessibility of statistical analysis, learning, and motion planning with parallel grid computing, c) trajectories, control policies, and outcomes can be shared by the arms by Collective Robot Learning and last but not the least, d) using crowd sourcing with the help of analyzing images, classification, learning, and error recovery by human expertise which can be called Human Computation in short \cite{four}. Another interesting absorption of IoT based robotic arms using cloud robotics can be the increasing ability to learn the techniques of tasks done by human in a very quick manner which is called "Rapid Learning". For example, Fanuc, Japanese industrial robots which are capable of figuring out the best way to perform a particular task \cite{five}. Surveying over 300 manufacturers, it was found that, though media has been conveying frightening ideas about cloud robotics in manufacturing process but most of the surveyed have shared that there are no such problems, in fact, a large amount among them have expressed that cloud robotics is the major reason behind the security improvement \cite{six}.
+In this paper, it will be elaborated that how an important part of robotics which is, robotic arm, works as an IoRT device and what are the scopes and advantages of the application of cloud robotic and IoRT in robotic arms, by implementing a 5 DoF heterogenic robotic arm based on IoRT. Cloud Robotics is the most vital part of IoRT where robotic arms will act as IoT devices by being connected with Internet and will communicate using the concept of cloud robotics. First attraction of using IoT services is, robotic arms can get smarter and this will be very beneficial.
+
+
+
+% =======================================================
+% # II. Impact of traps on large signal characteristics #
+% =======================================================
+
+\section{Background Research}
+
+\subsection{Internet of Things (IoT) and Internet of Robotic Things (IoRT)}
+
+Transferring data over network via Internet without any human-to-human connections or human-to-machine relations is the benefit of IoT which integrate components, for example, mobility support, divergent geo-distribution, wireless accessibility, and a higher-level stage for a particular number of IoT services \cite{seven}. IoT devices can communicate within themselves without interventions. They are provided with a kind of URI (Uniform Resource Identifier) named URN (Uniform Resource Name) in order to distinguish each IoT service nodes individually with name or id \cite{eight}. The Social Internet of Things paradigm suggests the network of Internet of Things connected to Social Groups. This Social Groups are created depending on the usability and importance of closely connected or similar Things.
+IoRT concept is using the IoT field in the robotics area so that robots can act and perform in a better and smarter way. This concept is theoretically explained in \cite{nine} briefly and described five layers of the infrastructure. Moreover, they have provided the guideline and overview about the probable protocols which can be followed in each layer to build an IoRT device or robots or robotic arms which has been shown in Fig.~\ref{iort_possible_protocols}.
+
+
+ \begin{figure}[ht!] %!t
+ \centering
+ \includegraphics[width=2.5in]{Picture2.png}
+ \caption{IoRT Infrastructure with possible protocols \cite{nine}}
+ \label{iort_possible_protocols}
+ \end{figure}
+
+According to \cite{ten}, the main difference between IoT and IoRT is that, the robots working as IoT devices not only can communicate but also can take real actions in the physical world. Different service providers establish the connectivity between the robots and the data management system or cloud. Moreover, full support for deployment, integration, maintenance as well as consulting services is included and thus, service requires the highest rate of growth as well. In order to perform other connectivity actions by the support of programming along with hardware, software is a vital part which is needed to be incorporated with the robots.
+
+
+% =============================================
+% # III. Modeling and consistency validations #
+% =============================================
+
+\subsection{Cloud Robotics}
+Cloud robotics is the concept of network-connected robots which use the benefits of parallel computation and data sharing by connecting with the Internet using the indefinite resources of big data and performing collaboration as well as rapid collective learning \cite{eleven}. Cloud computing provides solution to overcome the limitations and extend the capacities of networked robotics. Cloud robotics is the amalgamation of two complementary clouds which are, ad-hoc cloud where participating robots perform machine-to-machine (M2M) communications and an infrastructure cloud which follows the machine-to-cloud (M2C) communications \cite{two}.
+Ad-hoc Cloud. There are three benefits of ad-hoc cloud. At first, a virtual ad-hoc infrastructure can be formed by pooling the capacity of computation of individual robot together. Next, collaborative decisions can be chosen by exchanging knowledge among the unit of collaborative computation, in different applications of robotics. Finally, it helps the robots which are out of range, to send request to the storage system to establish communication. \cite{two}
+Infrastructure Cloud. A usable format for robots of arranged data about the situations around are given and cloud enabled robots are able to learn from the provided libraries combined with skills records according to hazardous situations or tasks. \cite{two}
+
+\subsection{Robotic Arm}
+Robotic arms represents  supplementary machines utilized for the extensive range of operations. For example, control such as transport of raw materials, or  generation such as painting, welding or gathering and they symbolizes kinematics with magnificent portability and adeptness and appropriate work space scope. Various applications of robotic arms \cite{twelve} play vital roles in different aspects and some of them are
+
+\subsubsection{Industrial applications}
+robotic arms are used in different welding purpose such as Arc Welding, Electron Beam, Flux Cored Welding, Laser Welding, Mig Welding, Plasma Cutting, Plasma Welding, Resistance Welding, Spot Welding, Tig Welding, and Welding Automation.
+
+
+\subsubsection{Material handling applications}
+Collaborative, Dispensing, Injection Molding, Machine Loading, Machine Tending, Material Handling, Order Picking, Packaging, Palletizing, Part Transfer, Pick and Place, Press Tending and Vision.
+
+\subsubsection{Other applications}
+3D Laser Vision, Appliance Automation, Assembly, Bonding / Sealing, Cleanroom, Coating, Cutting, Drilling, Fiberglass Cutting, Foundry, Grinding, Material Removal, Meat Processing Automation, Milling, Painting Automation, Polishing, Refueling, Routing, Spindling, Thermal Spray and Water jet.
+
+Gawli et al. \cite{thirteen} uses a Wi-Fi module on a Robot Arm to connect it to the open internet. Their purpose is to access the arm from a web page, passing some login credentials, and then sending specific commands to that arm to perform actions. Gawli et al. have used a 4 Degrees of Freedom Robot arm, and a remote access mechanism that is internet facing, without much security other than a basic login system. It explores both advantages and disadvantages of using this remotely controlled robot arm - discussing how it can move objects, increase productivity, work with higher accuracy, and allow easy monitoring. It points to some disadvantages of such a system, chiefly the security and privacy element related to the remote access. There is no exploration of any data-driven learning from the network, in their research. Kehoe, Patil, Abbeel, \& Goldberg \cite{fourteen}, focused more on utilising the powerful infrastructure of the Cloud to improve their Robot Arm implementation. There is a good discussion on using Big Data practices, Distributed Computing potential, and 'Collective Robot Learning' to improve the functionality of the Robot Arm.
+
+
+\section{System Implementation}
+
+The system consists of 5 layers following the model of IoRT architecture. The layers are: the hardware layer, the network layer, the internet layer, the infrastructure layer and the application layer \cite{nine}.  In what manner all these layers are used in this 5 DoF Heterogenic Robotic Arm, are described below. 
+
+\begin{figure}[ht!] %!t
+ \centering
+ \includegraphics[width=3.5in]{Picture1.png}
+ \caption{Schema Diagram of the SIoT for the implementation of Robotic Arm.}
+ \label{schema}
+ \end{figure}
+ 
+ 
+The robotic arm will have a unique identifier in the form of a combined pair of values consisting its universally unique MAC address and a securely generated SSH Public Key. The robotic arm will interface with the IOT Network by first registering itself on the Network and during this registration process, the robotic device will be provided an "Access Token" as well as a "Receive Token" by the network. In the IOT network, there will be a "Social Group" of other Robotic components with multiple sub-social groups. When the robotic device will be initially registering with the network, it will be visible to all the available members (other devices) of the social group. During the registration handshake, the robotic arm being tested can specify which sub-social Group it wants to integrate into. Using the Data property, the robotic arm can specify its hardware, component type, and other details as well as to specify its exact model during the registration process with the IOT Network. Once registered, the robotic arm can remember 'tracks' which are specific short movements from point A to point B in one plane of the hand specified as Key value pairs. Multiple tracks of such small movements in one plane, become an action acting on that plane. Multiple actions on multiple planes turn the robotic arm's action into a human-arm-like complex action. These Key Values track data that can be shared to other Robotic Arms in the IOT Network, which can perform the same action after that. All the models that were created are explained below.
+
+
+
+\begin{itemize}
+  \item 
+ \textbf{"Thing":}
+ Every "Thing" should be assigned to a "Social Group". It Can be part of more than on "Social Group". Every "Thing" should have a mac address, which is unique as Things are defined to have mac addresses for connectivity. It should generate a public key and private key and use the public key as a set with the mac address to register and login with the system. Here mac address and public key pair is the presentation of email and password of social networks that we use. These "Thing"s can be searched using "Tag"s associated with them. As properties, a "Thing" should have a title, created\_at, unique id and at least one "Component".
+
+\item
+ \textbf{"Social Group":} As properties a "Social group" should have unique "id", "created\_at" as time stamp, "parent id". "parent id" is for sub social groups. This social groups will create the path of ndn or domain. Text here will only contain characters and underscore. If the Social Group is the root then the parent id will be 0. This will be determined by the system depending on the usage of a specific sub social group, if the weight is high a social group can turn into a root social group.
+
+\item 
+ \textbf{"Tag":}" Tag"s are used for searching, which are publicly available. But retrieving corresponding Thing of a Type can not be possible unless the request is authenticated. As properties "Tag" has unique "id", "created\_at" and "title". All text in the title should be stored in low character. "Tag" searching should be substring based or similarity based.
+
+
+\item 
+ \textbf{"Component":}" This should have unique "id", "name", "description", "Type", "created\_at" as a time stamp and "model". This should have a "Track" Table where its activities are tracked.
+
+\item \textbf{"Track":}" This has the following as properties, unique "id", "created\_at" as time stamp. A field to store json file containing the track information.This should have a field "isPublic". If isPublic=True then this track can be retrieved by other "Thing"s. Can be made isPublic = True by Things. Default value = False. This can be inserted by the component's parent "Thing" with authenticated requests can be retrieved by other Authenticated Things. Track should have a relational table named "Action". Mapping the "Track" entry to an "Action".
+
+\item \textbf{"Action":}" This has the following as properties, "id", "name". "Action" has corresponding "Track".
+
+\item \textbf{"Type":}" This has the following as properties, unique "id", "created\_at", "name", "component" list
+
+\item \textbf{"Model":}" As properties "Model" has unique "id", "created\_at", "name", "component" list
+\end{itemize}
+
+
+\subsection{Hardware Layer}
+The main robotic arm and the controller of our implementation of the IoRT model is comprised of the following:
+
+\subsubsection{Raspberry Pi 3}
+The Raspberry Pi 3 is a micro size computer capable of controlling at least 6 servo motors. The Pi has an Ethernet Port. We will be using that to connect with the internet. \cite{fifteen,sixteen}
+
+\begin{figure}[ht!] %!t
+ \centering
+ \includegraphics[width=2.5in]{d.png}
+ \caption{Network layer and Hardware layer.}
+ \label{NetworkHardwareLayer}
+ \end{figure}
+
+
+\subsubsection{Robotic arm}
+A 5 DOF robotic arm was developed for the implementation which consists of Wrist, Arm, Shoulder and Base. The movements of the arm is shown in the Fig.~\ref{armMovement}.
+\begin{figure}[ht!] %!t
+ \centering
+ \includegraphics[width=3.5in]{Picture3a.png}
+ \caption{Movement of the Arm.}
+ \label{armMovement}
+ \end{figure}
+
+
+\subsubsection{Servo Motor}
+We used MG995 servo motors for the movements of the joints, which has metal gear dual ball bearing with the following specifications: 120 degrees (60 in each direction) of movements, 55 gram of weight, stall torque of 8.5 kgfocm (4.8 V ), 10 kgf.cm (6 V) \cite{seventeen}.
+
+\subsubsection{Main body construction}
+Two servos were used in the shoulder movements in order to provide more torque. The length of the wrist, arm and shoulder were 4.5 cm, 10cm and 6.5 cm consequently. The material used to make the main body was 3mm plastic wood and we used screws and hot glue to attach the servo motors with the main structure.
+
+\subsubsection{End Effector}
+The end effector is the part of a robotic arm that interacts with the environment physically. The most suitable end effector for our purpose will be a general-purpose grabber. This is a MKII robotic claw developed by DAGU which has 2 inches of open-close range of the fingers \cite{eightteen}. For the end effector operation and the wrist horizontal rotation we used two different types of servos. These are metal gear (micro size) servos with an operating voltage of 6 volts and delivered 44.4 oz-in. the highest torque at 0.18 sec/60. The weight is 20g and has a rotation of 180 degrees.
+\begin{figure}[ht!] %!t
+ \centering
+ \includegraphics[width=1.5in]{Picture4.png}
+ \caption{End Effector.}
+ \label{endEffector}
+ \end{figure}
+
+
+\subsubsection{Power supply}
+We used a 450W P5 personal computer power supply as the power supply for the robotic arm. By shorting pin 14 and 15 we were able to turn the power supply on. We used the 12V and Ground through a power distribution board to lower the voltage to 6V in order to operate the robotic arm properly.
+
+\subsection{Network Layer}
+In order to communicate with the internet, we are using a Raspberry Pi to connect to the internet. \cite{seventeen}. Using a conventional Ethernet cable (CAT5 or CAT6 with RJ45 connectors). By operating with IEEE 802.11 via a RJ45 connector, the connection to the internet and the hardware layer is built.
+
+\subsection{Internet Layer}
+Internet connection plays a vital role in communication of IoRT infrastructure. Communication protocols of IoT is a part of this layer to increase energy and resource efficiency as well as light weight data processing in robotic arms \cite{nine}. We are using the TCP/IP protocol to establish connection and using several cloud modules and services to make the system workable.
+
+\subsection{Infrastructure Layer}
+
+\begin{figure}[ht!] %!t
+ \centering
+ \includegraphics[width=3.5in]{Picture5.png}
+ \caption{Infrastructure.}
+ \label{Infrastructure}
+ \end{figure}
+ 
+This layer can be considered as the most significant one because of the robotic service centric cloud storage along with middleware, business process, and big data, built based on IoT. This layer is agglomerated with 5 diversely yet related structure such as robotic cloud platform, M2M2A cloud platform support, IoT business cloud services, Big Data services, and IoT cloud robotics infrastructure. Machine or the robotic arm will be receiving and giving feedback via the cloud. In this layer, the cloud robotic logics are implemented. For our purpose to implement the IoRT structure, we have used Microsoft Azure and its services. For the cloud section of the Internet of Robotic Things Model, we have used Microsoft Azure to implement our system modules and logics and Azure App Services to implement our primary logics. Additionally, we have used Azure SQL, Push Notification Service, Service Hub and the Content Delivery Network (CDN).
+
+\begin{figure}[ht!] %!t
+ \centering
+ \includegraphics[width=3.5in]{b.png}
+ \caption{Cloud Robotics Representation.}
+ \label{cloudRoboticsRepresentation}
+ \end{figure}
+ 
+\subsubsection{Azure App Services}
+Azure app services receive requests and convey the command to the robot through API services, which only communicates with the robot with Json. In addition, this also stores the command patterns in the database along with a new node every time. If a previously recorded pattern is found, then, it is prompt to the user to verify that if this is the required command or not. This functionality is handled by the application layer but, app services manage all the requests from the application layer to work with CDN, Service bus, Push notification and Mongo DB. 
+\subsubsection{Service Bus}
+Service bus is used to support push notification and to receive the requests from the user and robot by creating separate queues which will reduce the loss of commands. 
+\subsubsection{Push Notification}
+Push notification is used to send push messages to both user and robot to have a real time communication. 
+\subsubsection{Mongo DB}
+Mongo db is used as the database. The root node is divided into two sub nodes, one is "On going" and another one is "Learning". Each sequence of command is stored in the "On going" node with the timestamp. If any sequence is identified as successful and commonly used by the App Service, it will store that node to the "Learning" node. 
+\subsubsection{CDN}
+CDN (Content Delivery Network) is used to have instances of the App service and Mongo DB to every regional node so that both the user and robotic arm can have faster access.
+
+
+ 
+\subsection{Application Layer}
+The application layer consists of three sections. Firstly, the Ardunio part, which receives the angles to be set from the infrastructure layer and after the operation, it sends an acknowledgement to the infrastructure layer. Secondly, the App services of the Infrastructure layer plays the most vital part. Using the Azure sdks with php, the infrastructure layer App services app was developed, that receives and sends command and notification via service bus. Another part of this application was to recognize patterns of commonly used command sequences and store them in the "Learning" node of Mongo db. Furthermore, every time a sequence of commands are received in the service bus, the application searches for the received pattern in the "Learning" node to reuse and prompt to the user. If user accepts it, then the pattern will be reused. We implemented quick learning of IoRT following this process. Thirdly, a user end console-based software was developed using C\# and .NET that communicated with the Infrastructure layer.
+
+\section{Benefits of 5 DoF IoRT Based Robotic Arm}
+There is a significant benefit of using robotic arms, especially when performing tasks that require extremely high degree of precision every time, which humans struggle to perform repeatedly \cite{thirteen}. Consequently, utilizing the power of networked systems and the internet in conjunction with these robotic systems also becomes logical. This can especially help in those cases where there are multiple robotic components working together to achieve a goal such as in the assembly line of a manufacturing process, where all sensing, moving, and computation is not performed by a single machine \cite{fourteen}.
+\subsection{Heterogeneity}
+The robotic arm can be controlled from any kind of device having an internet connection because the infrastructure layer receives the commands via api and Azure app services. Depending on the devices a platform dependent app may be required.
+\subsection{Remotely Controllable}
+This robotic arm can be controlled remotely from any place via Internet as it takes instructions from cloud storage by Internet. Therefore, it is easy to monitor and control.
+\subsection{Smart Decision Taking}
+Smart robotic arms are able to take decisions in different situation by learning human activities or from other robotic activities which can be very helpful in different situation of different tasks. 
+\subsection{Communication}
+Communication process is more efficient and easier. This arm can communicate about all the difficulties or it can request for support from any situation or range using cloud service. More efficient communication results in an increase of productivity, safety and quality of product.
+\subsection{Collective learning ability}
+This robotic arm uses the services of cloud robotic as well as IoRT which provides the ability of learning from both human and other robotic arms. Thus, it can take smart decisions based on those learning and can perform needed actions according to that.
+\subsection{Performing difficult tasks}
+Smart robotic arms can handle difficult tasks with more accuracy than human such as lifting and moving heavy objects.
+\section{Scopes}
+Robotic arms are already being used for,
+
+\subsection{Clinical Services}
+It will not be very optimistic if it is predicted that in near future robotic arms will perform complex operations as medical robotics is a huge field and rapidly developing and smart robotic arms are able to perform minor operations because of their collaborating learning capacities.
+
+\subsection{Working as Third Hand}
+In difficult jobs which human are not able to perform alone with two hands, this robotic arm can perform as a third hand in those jobs where robotic arm will hold the object while working on it.
+
+\subsection{Retrieving Suspicious Objects}
+In case of dangerous situations where sending human is a risk, for example, in the situation where a bomb needs to be disposed, this smart robotic arm can solve handle the situation by rapid learning instead of risking a human life.
+
+\subsection{Surveillance Activities}
+In case of surveillance activities this smart robotic arms can be very useful and efficient in performance.
+
+\subsection{Sorting Colorful Objects}
+Smart robotic arms can be used for sorting objects by color as they are capable of decision taking by collective learning. They can arrange things according to color preference in needed tasks such as in clothing or pencil factories, this can be a very useful activity while packaging.
+
+
+\section{Conclusion}
+
+Though there are several useful applications of robotic arms but there exists some limitations as well. For instance, lacking opportunities of remotely accessibility in hazardous areas where human cannot operate them directly because of, lack of communicating skills of the arms on those places, lacking of quick learning skills from both human and other intelligent robots to become prepared for any critical situation. These limitations can be solved by using the IoRT services which can be very beneficial for increasing scopes of robotic arms and their rapid learning skills.
+In this paper, we tried to implement and improvise the concept of Internet of Robotic Things (IoRT) with a 5 DoF heterogeneous robotic arm which will be a great addition in the robotic field as it will work as a smart IoRT device connected with Internet and able to communicate efficiently regarding desired tasks, in addition, it can take decisions by rapid collective and collaborative learning from other robotic arms. This smart robotic arm can be beneficial in various fields such as clinical services, security services, industrial services, differentiating objects with colors or patterns and it can perform tasks in dangerous situations instead of endangering human lives.
+
+\begin{thebibliography}{1}
+
+\bibitem{one}
+L. Aggarwal, V. Gaur, and P. Verma, "Design and Implementation of a Wireless Gesture Controlled Robotic Arm with Vision," International Journal of Computer Applications (0975 - 8887), volume 79 - No 13, October 2013.
+
+\bibitem{two}
+Hu, G., Tay, W. P., \& Wen, Y. "Cloud robotics: architecture, challenges and applications." IEEE network 26.3 (2012).
+
+
+\bibitem{three}
+Koken B. "Cloud robotics platforms." Interdisciplinary Description of Complex Systems 13.1 (2015): 26-33. 
+\bibitem{four}
+Kehoe, B., Patil, S., Abbeel, P., \& Goldberg, K. "A survey of research on cloud robotics and automation." IEEE Transactions on automation science and engineering 12.2 (2015): 398-409.
+
+\bibitem{five}
+Fanuc.eu. (2017). "The advantages of automated machine tending." [online] Available at: http://www.fanuc.eu/uk/en/industrial- applications/machine-tending [Accessed 30 Nov. 2017].
+
+\bibitem{six}
+The State of Manufacturing Technology. [online] Available at: 
+\url{https://www.plex.com/content/dam/plex/en_us/resources/whitepaper/Plex_Study_Shows_Cloud_Emerging_as_Innovation_Platform.pdf}
+
+\bibitem{seven}
+R. Garcia-Castro, C. Hill, and O. Corcho. 2011. SemserGrid4Env Deliverable D4.3 v2 Sensor Network ontology suite.
+
+\bibitem{eight}
+Ashrafi T. H., Hossain M. A., Arefin S.E., Das K. D. J., Chakrabarty A. "IoT Infrastructure: Fog Computing Surpasses Cloud Computing." Proceedings of Internet of Things for Technological Development, IoT4TD 2017, 43-55, (2018).
+
+\bibitem{nine}
+Ray P. P. "Internet of Robotic Things: Concept, Technologies, and Challenges." IEEE Access 4 (2016): 9489-9500.
+
+\bibitem{ten}
+MarketWatch. (2017). Internet of Robotic Things Market Worth 21.44 Billion USD by 2022. [online] Available at: https://www.marketwatch.com/story/internet-of-robotic-things-market-worth-2144-billion-usd-by-2022-2016-09-21-112033054
+
+\bibitem{eleven}
+Park, J. (2017). "What is Cloud Robotics?" [online] C2RO. Available at: http://c2ro.com/what-is-cloud-robotics.
+
+\bibitem{twelve}
+Robots.com. (2017). Industrial Robot Applications. [online] Available at: https://www.robots.com/applications
+
+\bibitem{thirteen}
+Gawli, K., Karande, P., Belose, P., Bhadirke, T., Bhargava, A., \& College, A. (2017). Internet of Things (Iot) Based Robotic Arm. International Research Journal of Engineering and Technology(IRJET), 4(3), 757-759.
+
+\bibitem{fourteen}
+Kehoe, B., Patil, S., Abbeel, P., \& Goldberg, K. (2015). A Survey of Research on Cloud Robotics and Automation. IEEE Transactions on Automation Science and Engineering, 12(2), 398-409.
+
+\bibitem{fifteen}
+RASPBERRY PI 3 MODEL B+. [online] Available at: https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/
+
+\bibitem{sixteen}
+Raspberry-Pi-Model-Bplus-Product-Brief.[online] Available at: https://static.raspberrypi.org/files/product-briefs/Raspberry-Pi-Model-Bplus-Product-Brief.pdf
+
+\bibitem{seventeen}
+Electronicoscaldas.com.(2017). [online] Available at: \url{http://www.electronicoscaldas.com/datasheet/MG995_Tower-Pro.pdf}
+
+\bibitem{eighteen}
+Cdn.sparkfun.com. (2017). Cite a Website - Cite This For Me. [online] Available at: \url{https://cdn.sparkfun.com/datasheets/Robotics/MKIIroboticclaw.pdf}
+
+
+\end{thebibliography}
+
+
+
+
+% that's all folks
+\end{document}
+
+
