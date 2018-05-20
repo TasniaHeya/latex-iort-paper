@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  20 MAY 2018 11:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  20 MAY 2018 12:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -245,127 +245,121 @@ Overfull \hbox (0.94499pt too wide) in paragraph at lines 187--188
  [][] 
  []
 
-[2 <./images/Picture2.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3 <./images/Picture1.png>] <images/d.png, id=23, 775.89874pt x 354.32375pt>
+[2 <./images/Picture2.png>] <images/d.png, id=18, 775.89874pt x 354.32375pt>
 File: images/d.png Graphic file (type png)
 
 <use images/d.png>
-Package pdftex.def Info: images/d.png used on input line 230.
+Package pdftex.def Info: images/d.png used on input line 229.
 (pdftex.def)             Requested size: 180.67499pt x 82.50377pt.
- <images/Picture3a.png, id=24, 493.845pt x 186.6975pt>
+ <images/Picture3a.png, id=19, 493.845pt x 186.6975pt>
 File: images/Picture3a.png Graphic file (type png)
 
 <use images/Picture3a.png>
-Package pdftex.def Info: images/Picture3a.png used on input line 240.
+Package pdftex.def Info: images/Picture3a.png used on input line 239.
 (pdftex.def)             Requested size: 252.94499pt x 95.62468pt.
 
-Overfull \hbox (0.94499pt too wide) in paragraph at lines 240--241
+Overfull \hbox (0.94499pt too wide) in paragraph at lines 239--240
  [][] 
  []
 
+[3 <./images/Picture1.png>]
 <images/Picture4.png, id=25, 132.495pt x 132.495pt>
 File: images/Picture4.png Graphic file (type png)
  <use images/Picture4.png>
-Package pdftex.def Info: images/Picture4.png used on input line 256.
+Package pdftex.def Info: images/Picture4.png used on input line 255.
 (pdftex.def)             Requested size: 108.405pt x 108.406pt.
 
 <images/Picture5.png, id=26, 292.9344pt x 229.8186pt>
 File: images/Picture5.png Graphic file (type png)
 
 <use images/Picture5.png>
-Package pdftex.def Info: images/Picture5.png used on input line 275.
+Package pdftex.def Info: images/Picture5.png used on input line 274.
 (pdftex.def)             Requested size: 252.94499pt x 198.4502pt.
 
-Overfull \hbox (0.94499pt too wide) in paragraph at lines 275--276
+Overfull \hbox (0.94499pt too wide) in paragraph at lines 274--275
+ [][] 
+ []
+
+<images/b.png, id=27, 965.6075pt x 463.7325pt>
+File: images/b.png Graphic file (type png)
+ <use images/b.png>
+Package pdftex.def Info: images/b.png used on input line 283.
+(pdftex.def)             Requested size: 252.94499pt x 121.47333pt.
+
+Overfull \hbox (0.94499pt too wide) in paragraph at lines 283--284
  [][] 
  []
 
 [4 <./images/d.png> <./images/Picture3a.png> <./images/Picture4.png> <./images/
-Picture5.png>] <images/b.png, id=34, 965.6075pt x 463.7325pt>
-File: images/b.png Graphic file (type png)
-
-<use images/b.png>
-Package pdftex.def Info: images/b.png used on input line 284.
-(pdftex.def)             Requested size: 252.94499pt x 121.47333pt.
-
-Overfull \hbox (0.94499pt too wide) in paragraph at lines 284--285
- [][] 
- []
-
-
-Underfull \vbox (badness 1590) has occurred while \output is active []
-
- [5 <./images/b.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
+Picture5.png>] [5 <./images/b.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
 []\OT1/ptm/m/n/8 Fanuc.eu. (2017). "The ad-van-tages of au-to-mated ma-chine
  []
 
 
-Underfull \hbox (badness 2253) in paragraph at lines 358--359
+Underfull \hbox (badness 2253) in paragraph at lines 357--358
 \OT1/ptm/m/n/8 tend-ing." [on-line] Avail-able at: http://www.fanuc.eu/uk/en/in
 dustrial-
  []
 
 
-Underfull \hbox (badness 5908) in paragraph at lines 361--363
+Underfull \hbox (badness 5908) in paragraph at lines 360--362
 []\OT1/ptm/m/n/8 The State of Man-u-fac-tur-ing Tech-nol-ogy. [on-line] Avail-a
 ble at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--363
+Underfull \hbox (badness 10000) in paragraph at lines 360--362
 \OT1/ptm/m/n/8 https : / / www . plex . com / content / dam / plex / en[]us / r
 esources / whitepaper /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
 []\OT1/ptm/m/n/8 MarketWatch. (2017). In-ter-net of Robotic Things Mar-ket
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
 \OT1/ptm/m/n/8 Worth 21.44 Bil-lion USD by 2022. [on-line] Avail-able at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
 \OT1/ptm/m/n/8 https://www.marketwatch.com/story/internet-of-robotic-things-mar
 ket-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--390
+Underfull \hbox (badness 10000) in paragraph at lines 387--388
 []\OT1/ptm/m/n/8 RASPBERRY PI 3 MODEL B+. [on-line] Avail-able at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--393
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
 []\OT1/ptm/m/n/8 Raspberry-Pi-Model-Bplus-Product-Brief.[online] Avail-able at:
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--393
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
 \OT1/ptm/m/n/8 https://static.raspberrypi.org/files/product-briefs/Raspberry-Pi
 -Model-
  []
 
 
-Underfull \hbox (badness 7030) in paragraph at lines 395--396
+Underfull \hbox (badness 7030) in paragraph at lines 393--394
 []\OT1/ptm/m/n/8 Electronicoscaldas.com.(2017). [on-line] Avail-able at: $http 
 : / / www .
  []
 
 
-Underfull \hbox (badness 1681) in paragraph at lines 398--399
+Underfull \hbox (badness 1681) in paragraph at lines 396--397
 []\OT1/ptm/m/n/8 Cdn.sparkfun.com. (2017). Cite a Web-site - Cite This For Me.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 398--399
+Underfull \hbox (badness 10000) in paragraph at lines 396--397
 \OT1/ptm/m/n/8 [on-line] Avail-able at: $https : / / cdn . sparkfun . com / dat
 asheets / Robotics /
  []
@@ -397,7 +391,7 @@ pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/
 local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/tex
 live/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/
 texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on bare_conf.pdf (6 pages, 632596 bytes).
+Output written on bare_conf.pdf (6 pages, 632216 bytes).
 PDF statistics:
  63 PDF objects out of 1000 (max. 8388607)
  34 compressed objects within 1 object stream
